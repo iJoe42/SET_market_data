@@ -19,16 +19,17 @@ def main():
     #get current date
     now = datetime.datetime.now()
     year = now.year
-    month = monthName(now.month)
-    day = now.day
+    monthNumber = twoDigitsDate(now.month)
+    monthName = monthNumToName(now.month)
+    day = twoDigitsDate(now.day)
 
     #create folder if not already exist
-    folderPath = f"csv/{year}/{month}"
+    folderPath = f"csv/{year}/{monthName}"
     if not os.path.exists(folderPath):
         os.makedirs(folderPath)
 
     #create csv file
-    filePath = f"csv/{year}/{month}/{day}.csv"
+    filePath = f"csv/{year}/{monthName}/{year}-{monthNumber}-{day}.csv"
 
     with open(filePath, "w", newline="") as fp:
         field_names = ["symbol", "sign", "prior", "open", "high", "low", "last", "change", "percentChange", "totalVolume", "marketCap", "industryName", "sectorName"]
@@ -53,7 +54,7 @@ def main():
 
 ########## END OF main() ##########
 
-def monthName(monthInt):
+def monthNumToName(monthInt):
     return { 1: "January",
     2: "February",
     3: "March",
@@ -66,6 +67,13 @@ def monthName(monthInt):
     10: "October",
     11: "November",
     12: "December"}[monthInt]
+
+#turns "day" and "month" number value < 10 to two-digits
+def twoDigitsDate(number):
+    if number < 10:
+        number = f"0{number}"
+
+    return number
 
 ###################################
 

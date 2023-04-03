@@ -4,4 +4,4 @@
 
 ##### DEPRECATED #####
 
-this repository is deprecated and is no longer maintained
+this repository is deprecated and is no longer being maintained

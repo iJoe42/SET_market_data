@@ -2,6 +2,6 @@
  SET market data collection bot
 
 
-##### DEPRECATED #####
+##########
 
-this repository is deprecated and is no longer being maintained
+this repository is no longer being maintained
